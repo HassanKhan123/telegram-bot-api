@@ -1,7 +1,9 @@
 const dotenv = require('dotenv');
-const openvpnmanager = require('node-openvpn');
+const express = require('express');
 
 dotenv.config();
+
+const app = express();
 
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -19,4 +21,8 @@ bot.on('message', function (msg) {
 
 bot.on('polling_error', (error) => {
   console.log(error.code); // => 'EFATAL'
+});
+
+app.listen(3000, () => {
+  console.log('server running');
 });
