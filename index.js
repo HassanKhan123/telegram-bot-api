@@ -11,14 +11,18 @@ const token = '1563119984:AAHNmLiXfP3nBxVhMT8Nb8M-xuHXiiaitSM';
 
 const bot = new TelegramBot(token, { polling: true });
 
-bot.on('message', function (msg) {
+bot.on('message', (msg) => {
   console.log('msg====', msg);
-  const chatId = msg.chat.id;
+  var hi = 'hi';
+  if (msg.text.toString().toLowerCase().indexOf(hi) === 0) {
+    bot.sendMessage(msg.chat.id, 'Hello dear user');
+  }
 
-  // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, 'Received your message');
+  var bye = 'bye';
+  if (msg.text.toString().toLowerCase().includes(bye)) {
+    bot.sendMessage(msg.chat.id, 'Hope to see you around again , Bye');
+  }
 });
-
 bot.on('polling_error', (error) => {
   console.log(error.code); // => 'EFATAL'
 });
