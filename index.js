@@ -28,6 +28,14 @@ bot.onText(/\/sendpic/, (msg) => {
   });
 });
 
+bot.onText(/\/start/, (msg) => {
+  bot.sendMessage(msg.chat.id, 'Welcome', {
+    reply_markup: {
+      keyboard: [['Sample text', 'Second sample'], ['Keyboard'], ["I'm robot"]],
+    },
+  });
+});
+
 bot.on('polling_error', (error) => {
   console.log(error.code); // => 'EFATAL'
 });
