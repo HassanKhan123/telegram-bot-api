@@ -26,6 +26,6 @@ bot.on('polling_error', (error) => {
   console.log(error.code); // => 'EFATAL'
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('server running');
 });
