@@ -20,6 +20,10 @@ bot.on('message', (msg) => {
   if (msg.text.toString().toLowerCase().includes(bye)) {
     bot.sendMessage(msg.chat.id, 'Hope to see you around again , Bye');
   }
+  var robot = "I'm robot";
+  if (msg.text.indexOf(robot) === 0) {
+    bot.sendMessage(msg.chat.id, "Yes I'm robot but not in that way!");
+  }
 });
 
 bot.onText(/\/sendpic/, (msg) => {
