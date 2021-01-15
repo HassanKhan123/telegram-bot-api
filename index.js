@@ -22,6 +22,12 @@ bot.on('message', (msg) => {
   }
 });
 
+bot.onText(/\/sendpic/, (msg) => {
+  bot.sendPhoto(msg.chat.id, 'https://www.somesite.com/image.jpg', {
+    caption: 'Here we go ! \nThis is just a caption ',
+  });
+});
+
 bot.on('polling_error', (error) => {
   console.log(error.code); // => 'EFATAL'
 });
